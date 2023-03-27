@@ -1,42 +1,34 @@
 from fastapi import FastAPI, status, HTTPException, Response, File, UploadFile, Depends
 from fastapi.security.api_key import APIKey
-
 import tensorflow as tf
-import tensorflow_hub as hub
 
-from scipy.io import wavfile
-
-from utils import smooth, compare, convert_audio_for_model, semantic_sentence_search, fill_gap, interpolate
+from utils_new import Pitch, PitchGraphGenerator, SemanticEngine
 from model import ScoreRequest
 import auth
 
 from dotenv import load_dotenv
-
 import logging
 import httpx
-import json
 import os
 import urllib
-import datetime
 
 
 logging.config.fileConfig('logging.conf', disable_existing_loggers=False)
 logger = logging.getLogger(__name__)
-
 logger.setLevel(logging.INFO)
-
-logger.info('Starting server...')
-logger.info('Tensorflow version: {}'.format(tf.__version__))
 
 # Ignore warning about tensorflow
 tf.get_logger().setLevel(logging.ERROR)
+logger.info('Starting server...')
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 load_dotenv(verbose=True)
 
-os.environ["TFHUB_CACHE_DIR"] = ".cache/tfhub"
-model = hub.load('https://tfhub.dev/google/spice/2')
+model = PitchGraphGenerator()
 logger.info('SPICE Model loaded')
+engine = SemanticEngine("jhgan/ko-sroberta-multitask", "data/sentences.csv")
+logger.info('Semantic Engine loaded')
+
 sampling_rate = int(os.getenv('SAMPLING_RATE'))
 
 app = FastAPI()
@@ -87,43 +79,15 @@ def get_pitch_graph(audio: UploadFile = File(...), api_key: APIKey = Depends(aut
         raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail='audio file(wav) is required')
     
     raw_audio_file = audio.file.read()
-    random_name = datetime.datetime.now().strftime('%Y%m%d%H%M%S%f')
 
-    with open('audio_pitch/{}.wav'.format(random_name), 'wb') as f:
-        f.write(raw_audio_file)
+    pitch = model.get_pitch(raw_audio_file, confidence_threshold=0.9)
+    pitch = pitch.smooth()
 
-    converted_audio_file = convert_audio_for_model('audio_pitch/{}.wav'.format(random_name), 'audio_pitch/converted_{}.wav'.format(random_name), sampling_rate)
-    _, audio_file = wavfile.read(converted_audio_file, 'rb')
-
-    model_output = model.signatures["serving_default"](tf.constant(audio_file, tf.float32))
-
-    pitch_outputs = model_output["pitch"]
-    uncertainty_outputs = model_output["uncertainty"]
-
-    # confidence = 1 - uncertainty
-    confidence_outputs = list(1.0 - uncertainty_outputs)
-    pitch_outputs = [ float(x) for x in pitch_outputs ]
-
-    indices = range(len(pitch_outputs))
-
-    # confidence 0.9 이상인 것만 추출
-    confident_pitch_outputs = [ (i, p) for i, p, c in zip(indices, pitch_outputs, confidence_outputs) if c > 0.9 ]
-    try:
-        confident_pitch_outputs_x, confident_pitch_outputs_y = zip(*confident_pitch_outputs)
-    except ValueError:
-        logger.error('[/pitch-graph] an error occurred; confident pitch output is empty')
-        raise HTTPException(status_code=status.HTTP_422_UNPROCESSABLE_ENTITY, detail='confident pitch output is empty')
-
-    pitch_graph = {
-        'pitch_x': confident_pitch_outputs_x,
-        'pitch_y': confident_pitch_outputs_y
+    response_body = {
+        'pitch_x': pitch.x.tolist(),
+        'pitch_y': pitch.y.tolist(),
+        'pitch_length': len(pitch.x)
     }
-
-    os.remove('audio_pitch/{}.wav'.format(random_name))
-    os.remove('audio_pitch/converted_{}.wav'.format(random_name))
-    
-    response_body = smooth(pitch_graph)
-    response_body['pitch_length'] = len(pitch_outputs)
 
     return response_body
 
@@ -139,24 +103,14 @@ def calculate_pitch_score(score_request: ScoreRequest, api_key: APIKey = Depends
     if len(pitch_data['user_pitch_x']) != len(pitch_data['user_pitch_y']):
         raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail='user pitch data is invalid: x, y length is not same')
     
+    target_pitch = Pitch(pitch_data['target_pitch_x'], pitch_data['target_pitch_y'], label='target')
+    user_pitch = Pitch(pitch_data['user_pitch_x'], pitch_data['user_pitch_y'], label='user')
 
-    target_pitch = {
-        "label": "target",
-        "pitch_x": pitch_data['target_pitch_x'],
-        "pitch_y": pitch_data['target_pitch_y']
-    }
+    DTW_score = target_pitch.get_DTW_distance(user_pitch)
 
-    user_pitch = {
-        "label": "user",
-        "pitch_x": pitch_data['user_pitch_x'],
-        "pitch_y": pitch_data['user_pitch_y']
-    }
-
-    MAPE_score, DTW_score = compare(target_pitch, user_pitch)
-    logger.info('[/score] calculated MAPE score: {}, DTW score: {}'.format(MAPE_score, DTW_score))
+    logger.info('[/score] calculated DTW score: {}'.format(DTW_score))
     
     return {
-        'MAPE_score': MAPE_score,
         'DTW_score': DTW_score
     }
 
@@ -168,10 +122,10 @@ def sementic_search(query: str,
                     n_of_exact_result: int = 0,
                     api_key: APIKey = Depends(auth.get_api_key)):
     logger.info('[/semantic-search] called; query: {}'.format(query))
-    result = semantic_sentence_search(query=query,
-                                      is_excluding_exact_result=is_excluding_exact_result,
-                                      n_of_exact_result=n_of_exact_result,
-                                      top_n=top_n)
+    result = engine.search(query=query,
+                           is_excluding_exact_result=is_excluding_exact_result,
+                           n_of_exact_result=n_of_exact_result,
+                           top_n=top_n)
     logger.info('[/semantic-search] result: {}'.format(result))
 
     return result
