@@ -1,3 +1,4 @@
+![image](https://user-images.githubusercontent.com/61380136/229182068-4f0bd606-8dd3-4e27-a95a-41edc9d37410.png)
 
 
 <br/>
@@ -18,7 +19,7 @@ North and South Korea use the same writing system and have similar grammar, but 
 
 ## 📽  Demo Video Link
 
- [![Sae:ra]()
+ [![Sae:ra](https://user-images.githubusercontent.com/61380136/229182496-a3ea7c7f-313d-49b1-8ee0-e5b9ab106999.png)](https://www.youtube.com/watch?v=DNo8ptfh5Qg)
  
  <br/>
 
