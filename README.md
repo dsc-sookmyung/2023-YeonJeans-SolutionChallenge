@@ -23,6 +23,8 @@ North and South Korea use the same writing system and have similar grammar, but 
  
  <br/>
  
+ 
+ 
 ## 👩🏼‍💻  User Guide
 | Screen                                                    | User Guide                                                                          |
 |-----------------------------------------------------------|-------------------------------------------------------------------------------------|
