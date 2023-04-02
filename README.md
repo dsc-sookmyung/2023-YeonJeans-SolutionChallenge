@@ -44,7 +44,7 @@ North and South Korea use the same writing system and have similar grammar, but 
 
 ###  For Android User
 
-1. Download the apk file [here](https://drive.google.com/drive/folders/1pTw9cPq0jb-7RgfSGqDXDVFwQBo_PyRj?usp=sharing).
+1. Download the apk file at Release tab
 2. Run the apk file on your phone.
 
 ### For iOS User
