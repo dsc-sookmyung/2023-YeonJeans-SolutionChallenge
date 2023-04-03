@@ -7,11 +7,6 @@ Sae:ra is providing educational solutions based on the app's high accessibility 
 North and South Korea use the same writing system and have similar grammar, but they have developed linguistic differences over the years due to their different environments and societies where they lived for many years after the division. For North Koreans adjusting to life in South Korea, pronunciation and accent can be some of the most challenging differences, leading to discrimination. To bridge this gap, we created SAERA, an app that enables users to learn pronunciation and accent by providing word examples with standard pronunciation and tips on how to pronounce words and what to pay attention to when pronouncing words based on the differences between South and North Korean.  
 <br/>
 
-## 🗒  Role division
-
-
-<br/>
-
 ## 🛠  Project Architecure
 
 ![structure](https://user-images.githubusercontent.com/61380136/228789413-032bc738-8622-4970-944b-4fd2e4136d29.png)
