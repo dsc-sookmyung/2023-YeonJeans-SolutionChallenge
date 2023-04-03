@@ -19,7 +19,7 @@ North and South Korea use the same writing system and have similar grammar, but 
 
  
 ## 👩🏼‍💻  User Guide
-| Screen                                                    | User Guide                                                                          |
+| <p align="center" > <br/> Screen </p>                                                   | <p align="center" > <br/> User Guide </p>                                                                         |
 |:-----------------------------------------------------------|-------------------------------------------------------------------------------------|
 | **[ 01 Initial Screen ]** <br/> <br/>  <img src="https://user-images.githubusercontent.com/61380136/229187779-eb9e0f87-4881-465b-8a56-21b92a39d14e.gif" width="250"/> | Enjoy Saera through your Google account!                                         |
 | **[ 02 Home Screen ]** <br/> <br/> <img src="https://user-images.githubusercontent.com/61380136/229188331-aba2c8b1-b7de-4c6f-aced-c4caac693e6e.gif" width="250"> | Learn the 5 most learned sentences and today's lesson                      |
