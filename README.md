@@ -9,9 +9,12 @@ North and South Korea use the same writing system and have similar grammar, but 
 <br/>
 
 ## 🗒  Role division
-| 김도은 <br/> (Doeun Kim) | 남수연 | 이주은 | 황연진 |
-|--------------------------|--------|--------|--------|
-|- UI Screen <br/>(Splash & Login Screen, Persistent TabBar, Today Learn Screen, Pronunciation Learn Screen, Accent Learn Screen, Create Custom Sentence Screen, MyPage Screen) <br/> - Automatic login <br/> - Today Learn <br/> - Pronunciation Learn <br/> - Accent Learn <br/> - My Page|        |        |        |
+| Name                     | Role |
+|--------------------------|------|
+| 김도은 <br/> (Doeun Kim) | - UI Screen <br/>(Splash & Login Screen, Persistent TabBar, Today Learn Screen, Pronunciation Learn Screen, Accent Learn Screen, Create Custom Sentence Screen, MyPage Screen) <br/> - Automatic login <br/> - Today Learn <br/> - Pronunciation Learn <br/> - Accent Learn <br/> - My Page |
+| 남수연 <br/> ()          |      |
+| 이주은 <br/> ()          |      |
+| 황연진 <br/> ()          |      |
 
 <br/>
 
