@@ -2,7 +2,7 @@
 
 
 <br/>
-Sae:ra is providing educational solutions based on the app's high accessibility to help North Koreans make a smooth transition to South Korea.
+Saera is providing educational solutions based on the app's high accessibility to help North Koreans make a smooth transition to South Korea.
 
 ## ❗️  Introduction
 North and South Korea use the same writing system and have similar grammar, but they have developed linguistic differences over the years due to their different environments and societies where they lived for many years after the division. For North Koreans adjusting to life in South Korea, pronunciation and accent can be some of the most challenging differences, leading to discrimination. To bridge this gap, we created SAERA, an app that enables users to learn pronunciation and accent by providing word examples with standard pronunciation and tips on how to pronounce words and what to pay attention to when pronouncing words based on the differences between South and North Korean.  
