@@ -16,12 +16,11 @@ North and South Korea use the same writing system and have similar grammar, but 
  [![Sae:ra](https://user-images.githubusercontent.com/61380136/229182496-a3ea7c7f-313d-49b1-8ee0-e5b9ab106999.png)](https://www.youtube.com/watch?v=DNo8ptfh5Qg)
  
  <br/>
-
  
 ## 👩🏼‍💻  User Guide
 | <p align="center" > <br/> Screen </p>                                                   | <p align="center" > <br/> User Guide </p>                                                                         |
 |:-----------------------------------------------------------|-------------------------------------------------------------------------------------|
-| **[ 01 Initial Screen ]** <br/> <br/>  <img src="https://user-images.githubusercontent.com/61380136/229187779-eb9e0f87-4881-465b-8a56-21b92a39d14e.gif" width="250"/> | Enjoy Saera through your Google account!                                         |
+| **[ 01 Initial Screen ]** <br/> <br/>  <img src="https://user-images.githubusercontent.com/61380136/229757086-f452ee6b-4fbe-4187-8914-cd24aa2cae9b.gif" width="250"/> | Enjoy Saera through your Google account!                                         |
 | **[ 02 Home Screen ]** <br/> <br/> <img src="https://user-images.githubusercontent.com/61380136/229188331-aba2c8b1-b7de-4c6f-aced-c4caac693e6e.gif" width="250"> | Learn the 5 most learned sentences and today's lesson                      |
 | **[ 03 Learn Screen ]** <br/> 1) Pronuciation Learning <br/> <br/> <img src="https://user-images.githubusercontent.com/61380136/229590186-580638f7-11e6-4c13-b0bd-bf1db7fa6ee6.gif" width="250"/>              | To help you learn pronunciation systematically, there are 6 categories organized by pronunciation. <br/> <br/> [ User Guide ] <br/> 1. Listen example speech for the word. <br/> 2. Look at the example sentences to see how this word would be used! <br/> 3. Record your voice. <br/> 4. Press the next button to practice as many times as you want. <br/> 5. Click stop button and check out the learning report.                                              |
 | **[ 03 Learn Screen ]** <br/> 2) Accent Learning <br/> <br/> <img src="https://user-images.githubusercontent.com/61380136/229347561-820f69c3-2840-4d68-b8cd-9b43fcda6e17.gif" width="250"/>                    | [ User Guide ] <br/> 1. We provide example speech for the sentence. <br/> 2. Record your voice. <br/> 3. You will be given an intonation graph and rating for your voice. <br/> <br/> <img width="503" alt="image" src="https://user-images.githubusercontent.com/61380136/229591140-f8b1b08c-455b-4174-9a8e-d64a9b686276.png"> |
