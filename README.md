@@ -70,7 +70,7 @@ With SAERA, we hope North Korean defectors can quickly learn the South Korean la
 
 ###  For Android User
 
-1. Download the apk file at Release tab
+1. Download the apk file at Release tab.
 2. Run the apk file on your phone.
 
 ### For iOS User
