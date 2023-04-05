@@ -17,7 +17,7 @@ With SAERA, we hope North Korean defectors can quickly learn the South Korean la
 | 김도은 <br/> (Doeun Kim) | - UI Screen <br/>(Splash & Login Screen, Persistent TabBar, Today Learn Screen, Pronunciation Learn Screen, Accent Learn Screen, Create Custom Sentence Screen, MyPage Screen) <br/> - Automatic login <br/> - Today Learn <br/> - Pronunciation Learn <br/> - Accent Learn <br/> - My Page |
 | 남수연 <br/> (Suyeon Nam)|- Extract pitch graph from voice using SPICE<br/>- Similarity Search<br/>- Calculate similarity between two pitch graphs<br/>- Deploy FastAPI + Nginx environment to GCP Virtual Machine<br/>- UX/UI Design<br/>- Train a model to classify end-of-speech pitch (deprecated)|
 | 이주은 <br/> ()          |      |
-| 황연진 <br/> ()          |      |
+| 황연진 <br/> (Yeonjin Hwang) | - UI Screen <br/>(Home Screen, Bookmark Screen, Learn Screen, Accent Main Screen, Pronunciation Main Screen, Search Learn Screen, Custom Statement Loading & Done Screen, Custom Statement Learn Screen, Today Learn Word & Statement List Screen) <br/> - Home <br/> - Category <br/> - Search & Filter <br/> - Learn Pronunciation & Accent Retrieve |
 
 <br/>
 
